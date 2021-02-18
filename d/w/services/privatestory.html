@@ -8,47 +8,8 @@
     <link rel="stylesheet" type="text/css" href="../../../web/applepay.css">
     <style>a, .tint, .table-btn:after {color: #eb3434} .active {color: #eb3434;border-bottom: 2px solid #eb3434;}</style>
     <script src="../../web/index.js"></script>
-    <script src="https://js.stripe.com/v3"></script>
     <meta name="description" content="DP Snapchat.">
     <meta property="og:title" content="DP Snapchat">
-    <div id="error-message"></div>
-
-<script>
-(function() {
-  var stripe = Stripe('pk_live_51ILx0vKoqOa4sPEGzSKjPJeip377Qs6gZmq3VA58HIynNU4eUI9jJ1BF9Djs0MLcKP3ABVWHhHIxS9Ez7UNWGwIA00TuREMi7j');
-
-  var checkoutButton = document.getElementById('checkout-button-price_1ILxIZKoqOa4sPEG6ngKt78E');
-  checkoutButton.addEventListener('click', function () {
-    /*
-     * When the customer clicks on the button, redirect
-     * them to Checkout.
-     */
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1ILxIZKoqOa4sPEG6ngKt78E', quantity: 1}],
-      mode: 'subscription',
-      /*
-       * Do not rely on the redirect to the successUrl for fulfilling
-       * purchases, customers may not always reach the success_url after
-       * a successful payment.
-       * Instead use one of the strategies described in
-       * https://stripe.com/docs/payments/checkout/fulfill-orders
-       */
-      successUrl: window.location.protocol + '//diepraemiosus.github.io/success',
-      cancelUrl: window.location.protocol + '//diepraemiosus.github.io/canceled',
-    })
-    .then(function (result) {
-      if (result.error) {
-        /*
-         * If `redirectToCheckout` fails due to a browser or network
-         * error, display the localized error message to your customer.
-         */
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-})();
-</script>
 <body>
     <div class="body">
         <div style="background-image: url(../../../assets/appicons/snapchat.png)" class="banner_underlay"></div>
@@ -58,14 +19,7 @@
                 <h1 class="package_name">Private Story</h1>
                 <p class="package_caption">$10</p>
    
-                <button
-                style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-                id="checkout-button-price_1ILxIZKoqOa4sPEG6ngKt78E"
-                role="link"
-                type="button"
-              >
-                Buy
-              </button>
+                <a class="link" href="https://www.snapchat.com/add/daviddaugust" target="_blank">Add Snap</a>
 
 
 
@@ -102,8 +56,5 @@
         </div>
         <div class="caption center footer">DiePraemiosus by David August – 2021</div>
     </div>
-
-
-    <script src="https://js.stripe.com/v3"></script>
 </body>
 </html>
